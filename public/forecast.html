@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunset/Sunrise Suggestion</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="forecast.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="container-fluid"> 
+        <nav class="navbar navbar-expand-md bg-light navbar-light ">
+          <h1><a class="navbar-brand" href="/">Weather Analysis</a></h1>          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>       
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">  
+              <div class="navbar-nav navbar-right">
+                <a class="nav-link" href="https://infsci2711-sunrisesunset.glitch.me/">MongoDB</a>
+                <a class="nav-link" href="https://mysql-for-weather.glitch.me/">MySQL</a>
+                <a class="nav-link" href="https://campingapp.glitch.me/ ">Neo4j</a>
+              </div>
+          </div>
+      </nav>
+    </div>
+    </header>
+    <article>
+      <div class="container-fluid">
+        <div class="jumbotron text-center">
+          <h2 id="analysis-title">Weather Guide: Stargazing Sunrise and Sunset at Camping Spots</h2>
+          <!--<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#4F86C6" class="bi bi-star-fill" viewBox="0 0 16 16">
+            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+          </svg>-->
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#4F86C6" class="bi bi-moon-stars-fill" viewBox="0 0 16 16">
+            <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/>
+            <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#DE7E73" class="bi bi-brightness-alt-high-fill" viewbox="0 0 16 16">
+            <path d="M8 3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 3m8 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5m-13.5.5a.5.5 0 0 0 0-1h-2a.5.5 0 0 0 0 1zm11.157-6.157a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m-9.9 2.121a.5.5 0 0 0 .707-.707L3.05 5.343a.5.5 0 1 0-.707.707zM8 7a4 4 0 0 0-4 4 .5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5 4 4 0 0 0-4-4"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#77AAAD" class="bi bi-umbrella" viewBox="0 0 16 16">
+            <path d="M8 0a.5.5 0 0 1 .5.5v.514C12.625 1.238 16 4.22 16 8c0 0 0 .5-.5.5-.149 0-.352-.145-.352-.145l-.004-.004-.025-.023a3.5 3.5 0 0 0-.555-.394A3.17 3.17 0 0 0 13 7.5c-.638 0-1.178.213-1.564.434a3.5 3.5 0 0 0-.555.394l-.025.023-.003.003s-.204.146-.353.146-.352-.145-.352-.145l-.004-.004-.025-.023a3.5 3.5 0 0 0-.555-.394 3.3 3.3 0 0 0-1.064-.39V13.5H8h.5v.039l-.005.083a3 3 0 0 1-.298 1.102 2.26 2.26 0 0 1-.763.88C7.06 15.851 6.587 16 6 16s-1.061-.148-1.434-.396a2.26 2.26 0 0 1-.763-.88 3 3 0 0 1-.302-1.185v-.025l-.001-.009v-.003s0-.002.5-.002h-.5V13a.5.5 0 0 1 1 0v.506l.003.044a2 2 0 0 0 .195.726c.095.191.23.367.423.495.19.127.466.229.879.229s.689-.102.879-.229c.193-.128.328-.304.424-.495a2 2 0 0 0 .197-.77V7.544a3.3 3.3 0 0 0-1.064.39 3.5 3.5 0 0 0-.58.417l-.004.004S5.65 8.5 5.5 8.5s-.352-.145-.352-.145l-.004-.004a3.5 3.5 0 0 0-.58-.417A3.17 3.17 0 0 0 3 7.5c-.638 0-1.177.213-1.564.434a3.5 3.5 0 0 0-.58.417l-.004.004S.65 8.5.5 8.5C0 8.5 0 8 0 8c0-3.78 3.375-6.762 7.5-6.986V.5A.5.5 0 0 1 8 0M6.577 2.123c-2.833.5-4.99 2.458-5.474 4.854A4.1 4.1 0 0 1 3 6.5c.806 0 1.48.25 1.962.511a9.7 9.7 0 0 1 .344-2.358c.242-.868.64-1.765 1.271-2.53m-.615 4.93A4.16 4.16 0 0 1 8 6.5a4.16 4.16 0 0 1 2.038.553 8.7 8.7 0 0 0-.307-2.13C9.434 3.858 8.898 2.83 8 2.117c-.898.712-1.434 1.74-1.731 2.804a8.7 8.7 0 0 0-.307 2.131zm3.46-4.93c.631.765 1.03 1.662 1.272 2.53.233.833.328 1.66.344 2.358A4.14 4.14 0 0 1 13 6.5c.77 0 1.42.23 1.897.477-.484-2.396-2.641-4.355-5.474-4.854z"/>
+          </svg>
+          <p>Discover the perfect spots for breathtaking sunrise and sunset views, along with meteor shower sightings and weather advice for your outdoor adventures!</p>
+        </div>
+      </div> 
+    </article>
+    <article class="page-container">
+      <!-- <h1>Sunset/Sunrise Suggestion</h1> -->
+      <div class="container-fluid" id="city-selector">
+        <div class="row">  
+          <button class="button" id="meteors">Meteors</button>
+          <label class="word" for="city">Choose a camping spot:</label>
+          <select id="city">
+            <option value="">Select a camping area</option>
+            <option value="15010">Hart's Content Campground</option>
+            <option value="15017">Cecil Henderson Montour Trail Campground</option>
+            <option value="15018">Queen Aliquippa Camp</option>
+            <option value="15022">Pine Cove Beach Club & RV Resort</option>
+            <option value="15026">Tri-State Holiness Association</option>
+            <option value="15089">Gap Trail Campground LLC</option>
+            <option value="15126">Montour Trail Boggs Campsite</option>
+            <option value="15129">Montour Trail Campground</option>
+            <option value="15135">Yough Shore Inn</option>
+            <option value="15143">Henry's Camping spot</option>
+            <option value="15205">Faulk Campground</option>
+            <option value="15215">Camp Guyasuta - Boy Scouts of America</option>
+            <option value="15301">Washington / Pittsburgh SW KOA Journey</option>
+            <option value="15479">Cedar Creek Trekker Campground</option>
+            <option value="15672">Fox Den Acres Campgrounds</option>
+            <option value="15679">Madison / Pittsburgh S.E. KOA Journey</option>
+            <option value="16053">Buttercup Woodlands Campground</option>
+          </select>
+          <!--<button class="button" id="load-weather">Historical Weather</button> -->
+          <button class="button" id="sunset-sunrise">Sunset/Sunrise Suggestion</button>
+          <!-- <button class="button" id="precipitation">Precipitation</button> -->
+          <button class="button" id="precipprob">Precipitation Probility</button>
+        </div>
+      </div>
+      <div id="forecast-container" class="container-fluid">
+        <!-- Forecast data will be displayed here -->
+      </div>
+
+      <svg id="temp-bar-chart" width="600" height="450">
+        <!-- Bar chart will be generated here -->
+      </svg>
+      <script src="forecast.js"></script>
+      <script src="https://d3js.org/d3.v7.min.js"></script>
+    </article>
+    <footer class="footer">© 2024 Weather Analysis &nbsp;
+      <a href="https://infsci2711-sunrisesunset.glitch.me/" target="_blank">Weather Analysis</a>
+    </footer>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</html>
